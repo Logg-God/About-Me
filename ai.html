@@ -1,13 +1,13 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — About</title>
-  <meta name="description" content="About Logan Hampel and the Dungeon Fighter project." />
+  <title>Dungeon Fighter — AI Workflow</title>
+  <meta name="description" content="How I use generative AI responsibly during development." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <header>
   <nav>
@@ -27,35 +27,45 @@
 
 <main class="wrap">
   <section class="hero">
-    <span class="pill">About</span>
-    <h1>About Me</h1>
-    <p class="sub">Who I am, what I build, and why I’m building Dungeon Fighter.</p>
+    <span class="pill">AI Workflow</span>
+    <h1>Generative AI Workflow</h1>
+    <p class="sub">AI as a tool: scaffolding, refactoring, test ideas — with validation and review.</p>
   </section>
 
   <section class="grid">
-    <div class="card">
-     <h2>Generative AI Workflow</h2>
+    <div class="card two">
+      <h2>How AI helps</h2>
       <p class="muted">
-      I use AI as a productivity tool for scaffolding modules, generating test cases, summarizing bugs, and refactoring for readability.
-      I validate all changes through testing, logging, and code review.
+        I use AI to accelerate development while keeping ownership of the design and logic.
+        AI is most valuable for turning ideas into structured tasks and reducing time spent on boilerplate.
       </p>
-
-      <h3>What I use AI for</h3>
       <ul>
-        <li>Service/module scaffolding and folder structure</li>
-        <li>Test checklists and edge cases</li>
-        <li>Refactoring scripts into smaller, readable functions</li>
-        <li>Turning design goals into implementable tasks</li>
+        <li>Scaffold module/service templates and folder structure</li>
+        <li>Generate test checklists + edge cases</li>
+        <li>Refactor scripts into smaller, readable functions</li>
+        <li>Summarize bugs and propose fixes</li>
       </ul>
+    </div>
 
-      <h3>How I validate</h3>
+    <div class="card two">
+      <h2>How I validate</h2>
+      <p class="muted">
+        All AI-assisted changes are validated through testing and review before they’re considered done.
+      </p>
       <ul>
         <li>In-game testing in isolated test maps</li>
         <li>Server-side logging for damage and reward events</li>
         <li>Code review from mentors (including my dad)</li>
+        <li>Small commits with clear messages to track changes</li>
       </ul>
+    </div>
 
-
+    <div class="card">
+      <h2>Guiding principle</h2>
+      <p class="muted">
+        AI speeds up implementation, but I stay responsible for correctness, security (anti-exploit),
+        code clarity, and game feel. If something is confusing, it gets rewritten.
+      </p>
     </div>
   </section>
 
