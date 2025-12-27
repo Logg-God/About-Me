@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Fighter — Roblox Dev Portfolio</title>
+  <meta name="description" content="Dungeon Fighter is a level-based PvE dungeon game built in Roblox. MVP + roadmap + devlog + architecture." />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #111827;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --accent: #60a5fa;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 500px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(34,197,94,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 72px; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 980px; margin: 0 auto; padding: 14px 18px;
+      display: flex; gap: 14px; align-items: center; justify-content: space-between;
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 700; letter-spacing:.2px; }
+    .dot { width:10px; height:10px; border-radius:99px; background: var(--accent); box-shadow: 0 0 0 6px rgba(96,165,250,.15); }
+    .links { display:flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+    .links a { color: var(--text); opacity: .85; font-size: 14px; padding: 8px 10px; border-radius: 10px; }
+    .links a:hover { background: rgba(255,255,255,.06); opacity: 1; text-decoration: none; }
+
+    .hero {
+      padding: 34px 0 14px;
+      display: grid; gap: 18px;
+    }
+    .pill {
+      display:inline-flex; gap:10px; align-items:center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      padding: 10px 12px;
+      border-radius: 999px;
+      width: fit-content;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    h1 { margin: 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.08; }
+    .sub { color: var(--muted); font-size: 16px; max-width: 72ch; }
+    .cta { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      font-weight: 600;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(96,165,250,.9), rgba(96,165,250,.45));
+      border-color: rgba(96,165,250,.55);
+    }
+    .grid {
+      display:grid; gap: 16px;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 18px;
+    }
+    .card {
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      background: rgba(17,24,39,.72);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h2 { margin: 0 0 8px; font-size: 22px; }
+    .card h3 { margin: 14px 0 8px; font-size: 18px; color: var(--text); }
+    .muted { color: var(--muted); }
+    .two { grid-column: span 12; }
+    @media (min-width: 860px) {
+      .two { grid-column: span 6; }
+      .third { grid-column: span 4; }
+    }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 6px 0; }
+    .tagrow { display:flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border: 1px solid var(--border);
+      border-bottom-color: rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      border-radius: 8px;
+      color: var(--text);
+    }
+    .hr { height: 1px; background: var(--border); margin: 16px 0; }
+    footer { margin-top: 18px; color: var(--muted); font-size: 13px; }
+    .small { font-size: 13px; }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#overview">Project</a>
+      <a href="#mvp">MVP</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#ai">AI Workflow</a>
+      <a href="#devlog">Devlog</a>
+      <a href="#media">Media</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">Roblox • Luau • PvE Dungeon • Server-authoritative combat</span>
+    <h1>Dungeon Fighter: a floor-based PvE dungeon game built in Roblox.</h1>
+    <p class="sub">
+      This site documents the full development lifecycle: MVP scope, release roadmap, technical architecture,
+      and a daily devlog. Built as an application portfolio for a CS summer program.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#mvp">View MVP Definition</a>
+      <a class="btn" href="#devlog">Read the Devlog</a>
+      <a class="btn" href="#architecture">See Architecture</a>
+    </div>
+    <div class="tagrow">
+      <span class="tag">Core loop</span>
+      <span class="tag">Vertical slice</span>
+      <span class="tag">Modular services</span>
+      <span class="tag">Anti-exploit</span>
+      <span class="tag">Iteration cadence</span>
+    </div>
+  </section>
+
+  <section id="about" class="grid">
+    <div class="card two">
+      <h2>About Me</h2>
+      <p class="muted">
+        I’m a 17-year-old (11th grade) Roblox developer. I’ve played Roblox since age 8 and have been scripting since age 12.
+        I focus on engineering: clean architecture, iteration, and shipping working systems.
+      </p>
+      <h3>Skills</h3>
+      <ul>
+        <li>Luau scripting, client/server architecture, RemoteEvents/Functions</li>
+        <li>Gameplay systems: combat, AI, progression, UI</li>
+        <li>Source control (GitHub), modular code organization</li>
+      </ul>
+    </div>
+
+    <div class="card two">
+      <h2>Why this project</h2>
+      <p class="muted">
+        I’m building Dungeon Fighter to demonstrate practical CS skills: decomposition, system design,
+        tradeoffs, testing, and iterative development. The goal is a fun, replayable dungeon experience with clear milestones.
+      </p>
+      <h3>What I’m optimizing for</h3>
+      <ul>
+        <li><b>Fun first:</b> combat feel + readable enemy patterns</li>
+        <li><b>Server authority:</b> validation to reduce exploits</li>
+        <li><b>Scalability:</b> codebase that supports collaboration</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="overview" class="grid">
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p class="muted"><b>Elevator pitch:</b> Enter a dungeon floor, defeat enemies, find upgrades, and beat a boss to progress.</p>
+      <h3>Core gameplay loop</h3>
+      <ul>
+        <li>Spawn → Explore rooms → Fight enemies → Earn loot/coins → Boss fight → Next floor</li>
+      </ul>
+      <div class="hr"></div>
+      <p class="muted small">
+        <b>Current status:</b> <span class="kbd">Planning</span> (MVP build in progress). This page will update daily with devlog entries and media.
+      </p>
+    </div>
+  </section>
+
+  <section id="mvp" class="grid">
+    <div class="card">
+      <h2>MVP (Minimum Viable Product)</h2>
+      <p class="muted">
+        The MVP is a <b>vertical slice</b>: the smallest complete version that proves the core loop is fun.
+      </p>
+
+      <h3>MVP goals</h3>
+      <ul>
+        <li>One complete floor experience: start → combat → boss → reward</li>
+        <li>Clean, modular code structure (services) to support later releases</li>
+        <li>Server-authoritative damage to reduce exploit risk</li>
+      </ul>
+
+      <h3>MVP feature list</h3>
+      <ul>
+        <li><b>1 floor</b> (single run loop)</li>
+        <li><b>1 weapon:</b> sword</li>
+        <li><b>2 enemies:</b> melee chaser + tank bruiser</li>
+        <li><b>1 boss:</b> 2 attacks + simple phase change</li>
+        <li><b>UI:</b> health bar + objective (“Defeat the boss”)</li>
+        <li><b>Rewards:</b> coins or a basic loot drop</li>
+        <li><b>Fail state:</b> death → restart at floor start</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="roadmap" class="grid">
+    <div class="card two">
+      <h2>Release Roadmap</h2>
+      <p class="muted">After MVP, I’ll build two releases: content expansion, then replayability systems.</p>
+
+      <h3>Release 1 — “3-floor dungeon”</h3>
+      <ul>
+        <li>3 floors fully playable</li>
+        <li>2–3 weapons (sword + heavy + ranged)</li>
+        <li>1 new enemy type (ranged)</li>
+        <li>Shop or rest area between floors</li>
+        <li>Basic data persistence (coins)</li>
+      </ul>
+
+      <h3>Release 2 — “Replayability”</h3>
+      <ul>
+        <li>Room variation (template-based)</li>
+        <li>Run modifiers (risk/reward)</li>
+        <li>Improved loot rarity + perks</li>
+        <li>Polish pass: VFX/SFX + better UI</li>
+      </ul>
+    </div>
+
+    <div class="card two">
+      <h2>Development Plan</h2>
+      <h3>Milestones</h3>
+      <ul>
+        <li><b>Day 1–2:</b> repo setup + baseline combat</li>
+        <li><b>Day 3:</b> enemy AI + player health + UI</li>
+        <li><b>Day 4:</b> boss fight + reward</li>
+        <li><b>Day 5–7:</b> polish, bug bash, devlog, demo media</li>
+      </ul>
+      <div class="hr"></div>
+      <p class="muted small">
+        Anything I can’t complete efficiently (UI polish, VFX/SFX, environment art) may be outsourced while I keep core systems in-house.
+      </p>
+    </div>
+  </section>
+
+  <section id="architecture" class="grid">
+    <div class="card">
+      <h2>Technical Architecture</h2>
+      <p class="muted">
+        The project uses a modular <b>service-based architecture</b> where each gameplay system has a single responsibility.
+        This makes the codebase easier to scale, test, and collaborate on.
+      </p>
+
+      <h3>High-level services</h3>
+      <ul>
+        <li><b>CombatService:</b> validates hits and applies damage (server-authoritative)</li>
+        <li><b>EnemyService:</b> spawns enemies, AI state, health, death</li>
+        <li><b>DungeonService:</b> run flow, floor progression, boss triggers</li>
+        <li><b>LootService:</b> drop tables, rarity rolls, rewards</li>
+        <li><b>DataService:</b> save/load coins and unlocks</li>
+      </ul>
+
+      <h3>Client vs Server responsibilities</h3>
+      <ul>
+        <li><b>Client:</b> input, animations, UI, camera feedback</li>
+        <li><b>Server:</b> damage validation, enemy health, rewards, progression</li>
+      </ul>
+
+      <p class="muted small">Source control: GitHub + branches + PR reviews for collaboration.</p>
+    </div>
+  </section>
+
+  <section id="ai" class="grid">
+    <div class="card">
+      <h2>Generative AI Workflow</h2>
+      <p class="muted">
+        I use AI as a productivity tool for scaffolding modules, generating test cases, summarizing bugs, and refactoring for readability.
+        I validate everything through in-game testing, logging, and code review.
+      </p>
+      <h3>How AI fits into my process</h3>
+      <ul>
+        <li>Scaffold module/service templates and folder structure</li>
+        <li>Generate edge cases and testing checklists</li>
+        <li>Refactor scripts into cleaner functions</li>
+        <li>Translate design goals into implementable tasks</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="devlog" class="grid">
+    <div class="card">
+      <h2>Devlog</h2>
+      <p class="muted">Daily updates will be posted here during the initial build week.</p>
+
+      <h3>Day 1 — Setup</h3>
+      <ul>
+        <li>Goal: repo + site + project scaffold</li>
+        <li>Shipped: (fill in)</li>
+        <li>Problems: (fill in)</li>
+        <li>Next: (fill in)</li>
+      </ul>
+
+      <h3>Day 2 — Combat baseline</h3>
+      <ul>
+        <li>Goal: sword + hit validation</li>
+        <li>Shipped: (fill in)</li>
+        <li>Problems: (fill in)</li>
+        <li>Next: (fill in)</li>
+      </ul>
+
+      <p class="muted small">
+        Tip: include 1 screenshot or 10-second clip per day. Evidence beats paragraphs.
+      </p>
+    </div>
+  </section>
+
+  <section id="media" class="grid">
+    <div class="card">
+      <h2>Media</h2>
+      <p class="muted">Add screenshots, GIFs, and demo clips here as you build.</p>
+      <ul>
+        <li>Screenshot: starting room</li>
+        <li>GIF: sword hit + enemy death</li>
+        <li>Clip: boss fight</li>
+      </ul>
+      <p class="muted small">
+        Optional: embed YouTube/Streamable links once you record them.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
+    <div class="small">Built with GitHub Pages. Updated during development.</div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
