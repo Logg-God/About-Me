@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Fighter — About</title>
+  <meta name="description" content="About Logan Hampel and the Dungeon Fighter project." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="ai.html">AI Workflow</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="media.html">Media</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">About</span>
+    <h1>About Me</h1>
+    <p class="sub">Who I am, what I build, and why I’m building Dungeon Fighter.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+     <h2>Generative AI Workflow</h2>
+      <p class="muted">
+      I use AI as a productivity tool for scaffolding modules, generating test cases, summarizing bugs, and refactoring for readability.
+      I validate all changes through testing, logging, and code review.
+      </p>
+
+      <h3>What I use AI for</h3>
+      <ul>
+        <li>Service/module scaffolding and folder structure</li>
+        <li>Test checklists and edge cases</li>
+        <li>Refactoring scripts into smaller, readable functions</li>
+        <li>Turning design goals into implementable tasks</li>
+      </ul>
+
+      <h3>How I validate</h3>
+      <ul>
+        <li>In-game testing in isolated test maps</li>
+        <li>Server-side logging for damage and reward events</li>
+        <li>Code review from mentors (including my dad)</li>
+      </ul>
+
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
+    <div class="small">Built with GitHub Pages. Updated during development.</div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
