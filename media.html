@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Fighter — Media</title>
+  <meta name="description" content="Screenshots and clips for Dungeon Fighter development." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="ai.html">AI Workflow</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="media.html">Media</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">Media</span>
+    <h1>Media</h1>
+    <p class="sub">Screenshots, GIFs, and demo clips added throughout development.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card two">
+      <h2>Planned media</h2>
+      <ul>
+        <li>Screenshot: starting room</li>
+        <li>GIF: sword hit + enemy death</li>
+        <li>Clip: boss fight demo</li>
+      </ul>
+      <p class="muted small">
+        Tip: Evidence beats paragraphs — add at least one visual per day.
+      </p>
+    </div>
+
+    <div class="card two">
+      <h2>How to add images (later)</h2>
+      <p class="muted">
+        Upload images to your repo in a folder like <span class="kbd">/assets</span>, then reference them like:
+      </p>
+      <p class="muted small">
+        <span class="kbd">&lt;img src="assets/day1.png" alt="Day 1 screenshot" /&gt;</span>
+      </p>
+      <p class="muted small">
+        (I can help you embed them cleanly once you have screenshots.)
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
+    <div class="small">Built with GitHub Pages. Updated during development.</div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
