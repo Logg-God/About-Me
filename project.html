@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Fighter — About</title>
+  <meta name="description" content="About Logan Hampel and the Dungeon Fighter project." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="ai.html">AI Workflow</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="media.html">Media</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">About</span>
+    <h1>About Me</h1>
+    <p class="sub">Who I am, what I build, and why I’m building Dungeon Fighter.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p class="muted"><b>Elevator pitch:</b> Dungeon Fighter is a floor-based PvE dungeon game where players fight through rooms, defeat a boss, and progress to the next level.</p>
+
+      <h3>Core gameplay loop</h3>
+      <ul>
+        <li>Spawn → Explore → Fight enemies → Earn loot/coins → Boss fight → Next floor</li>
+      </ul>
+
+      <div class="hr"></div>
+
+      <h2>MVP (Vertical Slice)</h2>
+      <p class="muted">The MVP is the smallest complete version that proves the core loop is fun.</p>
+      <ul>
+        <li><b>1 floor</b> (start → combat → boss → reward)</li>
+        <li><b>1 weapon:</b> sword</li>
+        <li><b>2 enemies:</b> melee chaser + tank bruiser</li>
+        <li><b>1 boss:</b> 2 attacks + simple phase change</li>
+        <li><b>UI:</b> health bar + objective</li>
+        <li><b>Rewards:</b> coins or basic loot drop</li>
+        <li><b>Fail state:</b> death → restart</li>
+    </ul>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
+    <div class="small">Built with GitHub Pages. Updated during development.</div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
