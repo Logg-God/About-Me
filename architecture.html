@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Fighter — About</title>
+  <meta name="description" content="About Logan Hampel and the Dungeon Fighter project." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="ai.html">AI Workflow</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="media.html">Media</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">About</span>
+    <h1>About Me</h1>
+    <p class="sub">Who I am, what I build, and why I’m building Dungeon Fighter.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Technical Architecture</h2>
+      <p class="muted">
+      This project uses a <b>service-based architecture</b> where each system owns one responsibility. This supports scaling and collaboration.
+      </p>
+
+      <h3>Services</h3>
+      <ul>
+        <li><b>CombatService:</b> validates hits and applies damage (server-authoritative)</li>
+        <li><b>EnemyService:</b> spawning, AI state, health, death</li>
+        <li><b>DungeonService:</b> floor progression, doors, boss triggers</li>
+        <li><b>LootService:</b> drop tables, rarity rolls, rewards</li>
+        <li><b>DataService:</b> save/load coins and unlocks</li>
+      </ul>
+
+      <h3>Client vs Server</h3>
+      <ul>
+        <li><b>Client:</b> input, animations, UI, camera feedback</li>
+        <li><b>Server:</b> validation, damage, enemy health, rewards, progression</li>
+      </ul>
+
+      <h3>Source control + collaboration</h3>
+      <ul>
+        <li>GitHub repo with branches and pull-request style reviews</li>
+        <li>Freelancers work on feature branches (UI/VFX) without touching core systems</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
+    <div class="small">Built with GitHub Pages. Updated during development.</div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
