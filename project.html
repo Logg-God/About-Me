@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — About</title>
-  <meta name="description" content="About Logan Hampel and the Dungeon Fighter project." />
+  <title>Dungeon Fighter — Project</title>
+  <meta name="description" content="Project overview and MVP definition for Dungeon Fighter." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 <header>
   <nav>
@@ -26,15 +27,18 @@
 
 <main class="wrap">
   <section class="hero">
-    <span class="pill">About</span>
-    <h1>About Me</h1>
-    <p class="sub">Who I am, what I build, and why I’m building Dungeon Fighter.</p>
+    <span class="pill">Project</span>
+    <h1>Project Overview + MVP</h1>
+    <p class="sub">What I’m building, why it’s fun, and the exact MVP scope.</p>
   </section>
 
   <section class="grid">
     <div class="card">
       <h2>Project Overview</h2>
-      <p class="muted"><b>Elevator pitch:</b> Dungeon Fighter is a floor-based PvE dungeon game where players fight through rooms, defeat a boss, and progress to the next level.</p>
+      <p class="muted">
+        <b>Elevator pitch:</b> Dungeon Fighter is a floor-based PvE dungeon game where players fight through rooms,
+        defeat a boss, and progress to the next level.
+      </p>
 
       <h3>Core gameplay loop</h3>
       <ul>
@@ -43,18 +47,34 @@
 
       <div class="hr"></div>
 
-      <h2>MVP (Vertical Slice)</h2>
-      <p class="muted">The MVP is the smallest complete version that proves the core loop is fun.</p>
+      <h2>MVP (Minimum Viable Product)</h2>
+      <p class="muted">
+        The MVP is a <b>vertical slice</b>: the smallest complete version that proves the core loop is fun.
+        It’s designed to be shippable quickly and expandable without rewriting core systems.
+      </p>
+
+      <h3>MVP goals</h3>
       <ul>
-        <li><b>1 floor</b> (start → combat → boss → reward)</li>
+        <li>One complete floor experience: start → combat → boss → reward</li>
+        <li>Server-authoritative damage (anti-exploit)</li>
+        <li>Modular service structure for scaling and collaboration</li>
+      </ul>
+
+      <h3>MVP feature list</h3>
+      <ul>
+        <li><b>1 floor</b> (single run loop)</li>
         <li><b>1 weapon:</b> sword</li>
         <li><b>2 enemies:</b> melee chaser + tank bruiser</li>
         <li><b>1 boss:</b> 2 attacks + simple phase change</li>
-        <li><b>UI:</b> health bar + objective</li>
-        <li><b>Rewards:</b> coins or basic loot drop</li>
-        <li><b>Fail state:</b> death → restart</li>
-    </ul>
+        <li><b>UI:</b> health bar + objective (“Defeat the boss”)</li>
+        <li><b>Rewards:</b> coins or a basic loot drop</li>
+        <li><b>Fail state:</b> death → restart at floor start</li>
+      </ul>
 
+      <p class="muted small">
+        After MVP ships, I’ll expand into a full 3-floor dungeon (Release 1) and then replayability systems (Release 2).
+        Details are on the <a href="roadmap.html">Roadmap</a> page.
+      </p>
     </div>
   </section>
 
