@@ -3,61 +3,118 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — Roblox Dev Portfolio</title>
-  <meta name="description" content="Dungeon Fighter is a level-based PvE dungeon game built in Roblox. MVP + roadmap + devlog + architecture." />
+  <title>Logan Hampel — Portfolio (Stevens Summer Tech Program)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<header>
-  <nav>
-    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="ai.html">AI Workflow</a>
-      <a href="devlog.html">Devlog</a>
-      <a href="media.html">Media</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Logan Hampel</span>
+        <span class="badge">Stevens Summer Tech Program • Portfolio</span>
+      </div>
+      <nav class="links">
+        <a class="active" href="index.html">Home</a>
+        <a href="project.html">Project</a>
+        <a href="progress.html">Progress</a>
+        <a href="devlog.html">Devlog</a>
+        <a href="roadmap.html">Release Roadmap</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="video.html">Video</a>
+        <a href="personal-statement.html">Personal Statement</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main class="wrap">
-  <section class="hero">
-    <span class="pill">Roblox • Luau • PvE Dungeon • Server-authoritative combat</span>
-    <h1>Dungeon Fighter</h1>
-    <p class="sub">
-      A floor-based PvE dungeon game built in Roblox. This site documents MVP scope, architecture, and daily progress.
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="project.html">MVP + Project</a>
-      <a class="btn" href="devlog.html">Devlog</a>
-      <a class="btn" href="architecture.html">Architecture</a>
-    </div>
-  </section>
-
-  <section class="grid">
-    <div class="card">
-      <h2>Status</h2>
-      <p class="muted">
-        <b>Current status:</b> <span class="kbd">Building MVP (Vertical Slice)</span><br />
-        <b>Next up:</b> Combat baseline → first enemy prototype → boss encounter.
+  <main class="container">
+    <section class="hero">
+      <h1>Portfolio for Stevens Summer Technology Program</h1>
+      <p>
+        This site documents my primary software project: a Roblox PvE dungeon game built with a modular service-based architecture.
+        All development shown here is completed by me.
       </p>
+
+      <div class="cta">
+        <a class="btn primary" href="personal-statement.html">Read my 500-word personal statement</a>
+        <a class="btn" href="progress.html">See progress to date</a>
+        <a class="btn" href="video.html">Watch roadmap + architecture video</a>
+      </div>
+
+      <div class="kpi">
+        <span class="pill">Start date: Dec 28, 2025</span>
+        <span class="pill">Last updated: Jan 11, 2026</span>
+        <span class="pill">Focus: clean modules, scalable systems</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>What I’m building</h2>
+        <p>
+          A PvE dungeon experience with repeatable “runs”, enemies, loot, progression, and an inventory/hotbar system.
+        </p>
+        <ul>
+          <li>Service modules for gameplay systems (combat, enemies, loot, dungeon flow)</li>
+          <li>Data saving + player inventory persistence</li>
+          <li>UI + hotbar flow for equipping items</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Why this matters for Stevens</h2>
+        <p>
+          This project demonstrates applied computer science skills: modular design, debugging, iteration, and building systems that remain maintainable as complexity grows.
+        </p>
+        <ul>
+          <li>Architecture decisions + tradeoffs documented</li>
+          <li>Devlog shows iterative progress and problem-solving</li>
+          <li>Roadmap shows planning and scope control</li>
+        </ul>
+      </div>
+
+      <div class="card full">
+        <h2>Quick navigation</h2>
+        <table class="table">
+          <tr>
+            <th>Page</th>
+            <th>What it contains</th>
+          </tr>
+          <tr>
+            <td><a href="project.html">Project</a></td>
+            <td>High-level overview, goals, and what the player experience looks like</td>
+          </tr>
+          <tr>
+            <td><a href="progress.html">Progress</a></td>
+            <td>What’s implemented now (service modules + features) and what’s next</td>
+          </tr>
+          <tr>
+            <td><a href="devlog.html">Devlog</a></td>
+            <td>Timeline from Dec 28 → now, showing concrete progress</td>
+          </tr>
+          <tr>
+            <td><a href="roadmap.html">Release Roadmap</a></td>
+            <td>Milestones: MVP → Vertical Slice → Polish → Release</td>
+          </tr>
+          <tr>
+            <td><a href="architecture.html">Architecture</a></td>
+            <td>How the modules fit together + data flow</td>
+          </tr>
+          <tr>
+            <td><a href="video.html">Video</a></td>
+            <td>YouTube walkthrough explaining roadmap + architecture</td>
+          </tr>
+          <tr>
+            <td><a href="personal-statement.html">Personal Statement</a></td>
+            <td>500-word statement for the Stevens Summer Technology Program application</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 Logan Hampel • Built with HTML/CSS on GitHub Pages
     </div>
-  </section>
-
-  <footer>
-    <div class="hr"></div>
-    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
-    <div class="small">Built with GitHub Pages. Updated during development.</div>
-  </footer>
-</main>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  </main>
 </body>
 </html>
