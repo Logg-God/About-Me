@@ -3,90 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — Project</title>
-  <meta name="description" content="Project overview and MVP definition for Dungeon Fighter." />
+  <title>Project — Roblox PvE Dungeon Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<header>
-  <nav>
-    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="ai.html">AI Workflow</a>
-      <a href="devlog.html">Devlog</a>
-      <a href="media.html">Media</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Logan Hampel</span>
+        <span class="badge">Project</span>
+      </div>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a class="active" href="project.html">Project</a>
+        <a href="progress.html">Progress</a>
+        <a href="devlog.html">Devlog</a>
+        <a href="roadmap.html">Release Roadmap</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="video.html">Video</a>
+        <a href="personal-statement.html">Personal Statement</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main class="wrap">
-  <section class="hero">
-    <span class="pill">Project</span>
-    <h1>Project Overview + MVP</h1>
-    <p class="sub">What I’m building, why it’s fun, and the exact MVP scope.</p>
-  </section>
-
-  <section class="grid">
-    <div class="card">
-      <h2>Project Overview</h2>
-      <p class="muted">
-        <b>Elevator pitch:</b> Dungeon Fighter is a floor-based PvE dungeon game where players fight through rooms,
-        defeat a boss, and progress to the next level.
+  <main class="container">
+    <section class="hero">
+      <h1>Roblox PvE Dungeon Game</h1>
+      <p>
+        A modular, performance-focused dungeon experience built in Roblox Studio using service modules.
+        <strong>All development is completed by me.</strong>
       </p>
+      <div class="kpi">
+        <span class="pill">Genre: PvE</span>
+        <span class="pill">Core loop: run → fight → loot → upgrade</span>
+        <span class="pill">Design goal: clean systems, easy iteration</span>
+      </div>
+    </section>
 
-      <h3>Core gameplay loop</h3>
-      <ul>
-        <li>Spawn → Explore → Fight enemies → Earn loot/coins → Boss fight → Next floor</li>
-      </ul>
+    <section class="grid">
+      <div class="card">
+        <h2>Player experience (target)</h2>
+        <ul>
+          <li>Enter a run (dungeon instance)</li>
+          <li>Fight enemies with readable attacks</li>
+          <li>Earn drops (weapons/armor/materials)</li>
+          <li>Equip items via hotbar + inventory UI</li>
+          <li>Progress through stronger enemies + rarer loot</li>
+        </ul>
+      </div>
 
-      <div class="hr"></div>
+      <div class="card">
+        <h2>Engineering goals</h2>
+        <ul>
+          <li>Systems that don’t become spaghetti as features expand</li>
+          <li>Server-authoritative gameplay logic</li>
+          <li>Reusable modules with clear responsibilities</li>
+          <li>Easy-to-debug state flow (data → inventory → equip)</li>
+        </ul>
+      </div>
 
-      <h2>MVP (Minimum Viable Product)</h2>
-      <p class="muted">
-        The MVP is a <b>vertical slice</b>: the smallest complete version that proves the core loop is fun.
-        It’s designed to be shippable quickly and expandable without rewriting core systems.
-      </p>
+      <div class="card full">
+        <h2>What’s implemented vs in progress</h2>
+        <p>
+          For a detailed list of modules and features completed to date, see <a href="progress.html">Progress</a>.
+          For the timeline of what was built each day/week, see <a href="devlog.html">Devlog</a>.
+        </p>
+      </div>
+    </section>
 
-      <h3>MVP goals</h3>
-      <ul>
-        <li>One complete floor experience: start → combat → boss → reward</li>
-        <li>Server-authoritative damage (anti-exploit)</li>
-        <li>Modular service structure for scaling and collaboration</li>
-      </ul>
-
-      <h3>MVP feature list</h3>
-      <ul>
-        <li><b>1 floor</b> (single run loop)</li>
-        <li><b>1 weapon:</b> sword</li>
-        <li><b>2 enemies:</b> melee chaser + tank bruiser</li>
-        <li><b>1 boss:</b> 2 attacks + simple phase change</li>
-        <li><b>UI:</b> health bar + objective (“Defeat the boss”)</li>
-        <li><b>Rewards:</b> coins or a basic loot drop</li>
-        <li><b>Fail state:</b> death → restart at floor start</li>
-      </ul>
-
-      <p class="muted small">
-        After MVP ships, I’ll expand into a full 3-floor dungeon (Release 1) and then replayability systems (Release 2).
-        Details are on the <a href="roadmap.html">Roadmap</a> page.
-      </p>
+    <div class="footer">
+      Tip: update screenshots/videos on the <a href="video.html">Video</a> page as your build improves.
     </div>
-  </section>
-
-  <footer>
-    <div class="hr"></div>
-    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
-    <div class="small">Built with GitHub Pages. Updated during development.</div>
-  </footer>
-</main>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  </main>
 </body>
 </html>
