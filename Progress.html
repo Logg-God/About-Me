@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Progress — Completed to Date</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Logan Hampel</span>
+        <span class="badge">Progress</span>
+      </div>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="project.html">Project</a>
+        <a class="active" href="progress.html">Progress</a>
+        <a href="devlog.html">Devlog</a>
+        <a href="roadmap.html">Release Roadmap</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="video.html">Video</a>
+        <a href="personal-statement.html">Personal Statement</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Progress completed to date</h1>
+      <p>
+        Snapshot of what’s working right now, based on the service-module structure of the project.
+        <strong>All work listed here is completed by me.</strong>
+      </p>
+      <div class="kpi">
+        <span class="pill">Start: Dec 28, 2025</span>
+        <span class="pill">Status date: Jan 11, 2026</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card full">
+        <h2>Core service modules (implemented)</h2>
+        <table class="table">
+          <tr>
+            <th>Module</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>CombatService</td>
+            <td>Implemented</td>
+            <td>Core combat hooks + damage application pattern (server authoritative)</td>
+          </tr>
+          <tr>
+            <td>EnemyService</td>
+            <td>Implemented</td>
+            <td>Enemy lifecycle + spawn/cleanup structure</td>
+          </tr>
+          <tr>
+            <td>DungeonService</td>
+            <td>Implemented</td>
+            <td>Dungeon/run flow scaffolding; supports iterating on rooms/waves</td>
+          </tr>
+          <tr>
+            <td>LootService</td>
+            <td>Implemented</td>
+            <td>Drop generation + awarding items (ties into inventory)</td>
+          </tr>
+          <tr>
+            <td>DataService / SaveService</td>
+            <td>Implemented</td>
+            <td>Player data loading/saving; inventory persistence</td>
+          </tr>
+          <tr>
+            <td>Inventory + Hotbar</td>
+            <td>Implemented</td>
+            <td>Hotbar active slot + equip flow (UI → server → character)</td>
+          </tr>
+          <tr>
+            <td>Armor/Equipment System</td>
+            <td>In progress</td>
+            <td>Equipping works; alignment/attachments tuning ongoing</td>
+          </tr>
+        </table>
+        <p style="margin-top:10px">
+          Note: rename/adjust rows to match the exact filenames of your attached modules if they differ.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Recent completed work</h2>
+        <ul>
+          <li>Service-based module structure (clean responsibility boundaries)</li>
+          <li>Inventory → Hotbar → Equip pathway</li>
+          <li>Equipment models + iteration on attachments/welds</li>
+          <li>Website updated to document progress + application materials</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Next focus (near-term)</h2>
+        <ul>
+          <li>Finalize armor attachments (per-body-part alignment)</li>
+          <li>Stabilize equip visuals + replication edge cases</li>
+          <li>Vertical-slice dungeon loop (start → clear → rewards → return)</li>
+          <li>Add 1–2 enemy types with distinct attacks</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer">
+      See the full timeline on <a href="devlog.html">Devlog</a>.
+    </div>
+  </main>
+</body>
+</html>
