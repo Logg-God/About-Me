@@ -3,86 +3,92 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — Architecture</title>
-  <meta name="description" content="Technical architecture for Dungeon Fighter: services, client/server split, collaboration." />
+  <title>Technical Architecture</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<header>
-  <nav>
-    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="ai.html">AI Workflow</a>
-      <a href="devlog.html">Devlog</a>
-      <a href="media.html">Media</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Logan Hampel</span>
+        <span class="badge">Architecture</span>
+      </div>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="project.html">Project</a>
+        <a href="progress.html">Progress</a>
+        <a href="devlog.html">Devlog</a>
+        <a href="roadmap.html">Release Roadmap</a>
+        <a class="active" href="architecture.html">Architecture</a>
+        <a href="video.html">Video</a>
+        <a href="personal-statement.html">Personal Statement</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main class="wrap">
-  <section class="hero">
-    <span class="pill">Architecture</span>
-    <h1>Technical Architecture</h1>
-    <p class="sub">A modular service-based structure designed for scaling and collaboration.</p>
-  </section>
-
-  <section class="grid">
-    <div class="card">
-      <h2>Service-based architecture</h2>
-      <p class="muted">
-        The project uses a <b>service pattern</b>: each system owns a single responsibility and exposes a clean API.
-        This keeps the codebase organized and makes it easy for multiple contributors to work safely.
+  <main class="container">
+    <section class="hero">
+      <h1>Technical Architecture</h1>
+      <p>
+        This project uses service modules to keep responsibilities clear and features scalable.
+        The goal is a system that stays maintainable as the game expands.
       </p>
+    </section>
 
-      <h3>Core services</h3>
-      <ul>
-        <li><b>CombatService:</b> validates hits, applies damage, handles cooldowns (server-authoritative)</li>
-        <li><b>EnemyService:</b> spawns enemies, runs AI, tracks enemy health/death</li>
-        <li><b>DungeonService:</b> controls run flow: rooms, objectives, doors, boss triggers</li>
-        <li><b>LootService:</b> drop tables, rarity rolls, reward generation</li>
-        <li><b>DataService:</b> save/load coins and unlocks (later persistence)</li>
-      </ul>
+    <section class="grid">
+      <div class="card full">
+        <h2>Service map (high level)</h2>
+        <table class="table">
+          <tr>
+            <th>Layer</th>
+            <th>Responsibilities</th>
+          </tr>
+          <tr>
+            <td>UI (Client)</td>
+            <td>Inventory display, hotbar selection, player input; sends requests to server</td>
+          </tr>
+          <tr>
+            <td>Game Services (Server)</td>
+            <td>Combat, enemies, dungeon flow, loot generation, equipment validation</td>
+          </tr>
+          <tr>
+            <td>Data Layer</td>
+            <td>Load/save player profile; authoritative inventory state</td>
+          </tr>
+        </table>
+      </div>
 
-      <div class="hr"></div>
+      <div class="card">
+        <h2>Why service modules</h2>
+        <ul>
+          <li>Each system has one clear “owner” module</li>
+          <li>Less coupling = easier debugging</li>
+          <li>Enables iteration without rewriting everything</li>
+        </ul>
+      </div>
 
-      <h2>Client vs Server responsibilities</h2>
-      <ul>
-        <li><b>Client:</b> input, animations, UI, camera feedback</li>
-        <li><b>Server:</b> validation, damage, enemy health, rewards, progression</li>
-      </ul>
+      <div class="card">
+        <h2>Example flow: Equip from hotbar</h2>
+        <ul>
+          <li>Client selects hotbar slot + requests equip</li>
+          <li>Server validates item ownership and slot state</li>
+          <li>Server equips item to character using attachments/welds</li>
+          <li>Server broadcasts update for UI state consistency</li>
+        </ul>
+      </div>
 
-      <h3>Why server-authoritative combat</h3>
-      <p class="muted">
-        Clients can be exploited. The server should be the source of truth for damage and rewards.
-        The client requests actions; the server validates them and applies results.
-      </p>
+      <div class="card full">
+        <h2>Architecture walkthrough video</h2>
+        <p>
+          I explain the service boundaries and data flow in the <a href="video.html">Video</a> walkthrough.
+        </p>
+      </div>
+    </section>
 
-      <div class="hr"></div>
-
-      <h2>Collaboration workflow</h2>
-      <ul>
-        <li>GitHub repo with branches: <span class="kbd">main</span> (stable), <span class="kbd">dev</span> (work-in-progress)</li>
-        <li>Feature branches for contractors: <span class="kbd">ui-polish</span>, <span class="kbd">vfx-pass</span></li>
-        <li>PR-style reviews (my dad can review changes before merge)</li>
-      </ul>
+    <div class="footer">
+      As the project grows, this page will be updated with diagrams and module-level interfaces.
     </div>
-  </section>
-
-  <footer>
-    <div class="hr"></div>
-    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
-    <div class="small">Built with GitHub Pages. Updated during development.</div>
-  </footer>
-</main>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  </main>
 </body>
 </html>
