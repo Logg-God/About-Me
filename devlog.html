@@ -3,107 +3,120 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dungeon Fighter — Devlog</title>
-  <meta name="description" content="Daily development log for Dungeon Fighter." />
+  <title>Devlog — Dec 28 to Jan 11</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<header>
-  <nav>
-    <div class="brand"><span class="dot"></span> Dungeon Fighter — Dev Portfolio</div>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="ai.html">AI Workflow</a>
-      <a href="devlog.html">Devlog</a>
-      <a href="media.html">Media</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Logan Hampel</span>
+        <span class="badge">Devlog</span>
+      </div>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="project.html">Project</a>
+        <a href="progress.html">Progress</a>
+        <a class="active" href="devlog.html">Devlog</a>
+        <a href="roadmap.html">Release Roadmap</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="video.html">Video</a>
+        <a href="personal-statement.html">Personal Statement</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main class="wrap">
-  <section class="hero">
-    <span class="pill">Devlog</span>
-    <h1>Daily Devlog</h1>
-    <p class="sub">Goals → what shipped → problems → next steps. Updated during the build sprint.</p>
-  </section>
+  <main class="container">
+    <section class="hero">
+      <h1>Development Log</h1>
+      <p>
+        Timeline of progress from <strong>Dec 28, 2025</strong> through <strong>Jan 11, 2026</strong>.
+        (This site is part of my Stevens Summer Technology Program application.)
+      </p>
+      <div class="kpi">
+        <span class="pill">All work completed by me</span>
+        <span class="pill">Goal: show iteration + problem-solving</span>
+      </div>
+    </section>
 
-  <section class="grid">
-    <div class="card">
-      <h2>Week 1 Sprint</h2>
-      <p class="muted">Tip: add at least one screenshot or short clip per day.</p>
+    <section class="grid">
+      <div class="card full">
+        <h2>Dec 28, 2025 — Project structure + direction</h2>
+        <ul>
+          <li>Confirmed project scope: PvE dungeon loop with progression</li>
+          <li>Committed to modular “service” architecture for maintainability</li>
+          <li>Set initial repo + documentation layout for portfolio use</li>
+        </ul>
 
-      <h3>Day 1 — Setup</h3>
-      <ul>
-        <li><b>Goal:</b> repo + site + project scaffold</li>
-        <li><b>Shipped:</b> multi-page GitHub Pages portfolio + MVP definition</li>
-        <li><b>Problems:</b> scope control and prioritization</li>
-        <li><b>Next:</b> combat baseline (server-authoritative) + first enemy prototype</li>
-      </ul>
+        <div class="hr"></div>
 
-      <h3>Day 2 — Combat baseline</h3>
-      <ul>
-        <li><b>Goal:</b> sword + hit validation</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <h2>Dec 29–31, 2025 — Core systems scaffolding</h2>
+        <ul>
+          <li>Built/cleaned early versions of core services (combat/enemies/dungeon/loot/data)</li>
+          <li>Established server-authoritative pattern for gameplay actions</li>
+          <li>Started wiring inventory persistence into save/load flow</li>
+        </ul>
 
-      <h3>Day 3 — Enemy AI + health</h3>
-      <ul>
-        <li><b>Goal:</b> enemy chase/attack loop + player health + UI</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <div class="hr"></div>
 
-      <h3>Day 4 — Boss vertical slice</h3>
-      <ul>
-        <li><b>Goal:</b> boss arena + 2 attacks + reward</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <h2>Jan 1–3, 2026 — Inventory + equipping path</h2>
+        <ul>
+          <li>Implemented hotbar selection (active slot) and synced updates</li>
+          <li>Built equip flow: UI → RemoteEvent → server validates → equips to character</li>
+          <li>Started shifting from “normal inventory” toward a hotbar-first experience</li>
+        </ul>
 
-      <h3>Day 5 — Dungeon flow polish</h3>
-      <ul>
-        <li><b>Goal:</b> objectives, doors, checkpoints, restart flow</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <div class="hr"></div>
 
-      <h3>Day 6 — Website + documentation</h3>
-      <ul>
-        <li><b>Goal:</b> architecture write-up + AI workflow + media</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <h2>Jan 4–6, 2026 — Equipment models + iteration</h2>
+        <ul>
+          <li>Created initial armor pieces (helmet/chest/arms) as models</li>
+          <li>Worked through alignment issues (attachments vs welds)</li>
+          <li>Tested body-part-specific attachment strategy for multi-part armor</li>
+        </ul>
 
-      <h3>Day 7 — Bug bash + demo</h3>
-      <ul>
-        <li><b>Goal:</b> balance numbers + record demo clip</li>
-        <li><b>Shipped:</b> (fill in)</li>
-        <li><b>Problems:</b> (fill in)</li>
-        <li><b>Next:</b> (fill in)</li>
-      </ul>
+        <div class="hr"></div>
+
+        <h2>Jan 7–9, 2026 — Debugging equip replication + visuals</h2>
+        <ul>
+          <li>Resolved “equips but not near me / not lining up” bugs by tightening weld/attachment logic</li>
+          <li>Improved model structure consistency (clear primary parts, attachments per limb)</li>
+          <li>Refined server-side handling for active hotbar slot switching</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>Jan 10–11, 2026 — Portfolio upgrades + documentation</h2>
+        <ul>
+          <li>Updated website to reflect current progress and remove outsourcing references</li>
+          <li>Added Progress page and a structured Devlog timeline</li>
+          <li>Added Personal Statement page and a Video page for roadmap/architecture walkthrough</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What this devlog shows</h2>
+        <ul>
+          <li>Starting from architecture decisions → building systems → iterating on real issues</li>
+          <li>Debugging + refinement (especially equipment alignment)</li>
+          <li>Consistent progress and documentation for a real application portfolio</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Next devlog entries</h2>
+        <ul>
+          <li>Add screenshots/GIFs of hotbar + equip changes</li>
+          <li>Add commit links per milestone</li>
+          <li>Document 1 dungeon run end-to-end once stable</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer">
+      If you want, you can add a short “Screenshots” section later on <a href="video.html">Video</a> or a new Media page.
     </div>
-  </section>
-
-  <footer>
-    <div class="hr"></div>
-    <div>© <span id="y"></span> Logan Hampel — Dungeon Fighter Dev Portfolio</div>
-    <div class="small">Built with GitHub Pages. Updated during development.</div>
-  </footer>
-</main>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  </main>
 </body>
 </html>
